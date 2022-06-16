@@ -25,6 +25,8 @@ class Book(models.Model):
             ('electronic', 'Electronic'),
             ('other', 'Other')],
         'Type')
+    notes = fields.Text('Internal Notes')
+    descr = fields.Html('Description')
 
     # Numeric fields:
     copies = fields.Integer(default=1)
