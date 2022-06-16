@@ -5,7 +5,7 @@ from odoo.exceptions import Warning
 class Book(models.Model):
     _name = 'library.book'
     _description = 'Book'
-
+    _order='name, date_published desc'
     # name = fields.Char('Title', required=True)
 
     name = fields.Char(
