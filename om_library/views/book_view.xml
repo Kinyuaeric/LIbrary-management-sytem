@@ -8,6 +8,7 @@
                 <header>
                     <!-- Buttons will go here -->
                     <button name="button_check_isbn" type="object" string="Check ISBN" />
+                    <button name="btn_whatsapp" string="Whatsapp" type="object" icon="fa-whatsapp"/>
                 </header>
                 <sheet>
                     <!-- Content goes here: -->

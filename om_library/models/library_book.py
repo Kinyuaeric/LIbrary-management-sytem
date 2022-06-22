@@ -5,8 +5,7 @@ from odoo.exceptions import Warning
 class Book(models.Model):
     _name = 'library.book'
     _description = 'Book'
-    
-
+    _order='name, date_published desc'
     # name = fields.Char('Title', required=True)
 
     name = fields.Char(
@@ -26,6 +25,8 @@ class Book(models.Model):
             ('electronic', 'Electronic'),
             ('other', 'Other')],
         'Type')
+    notes = fields.Text('Internal Notes')
+    descr = fields.Html('Description')
 
     # Numeric fields:
     copies = fields.Integer(default=1)
@@ -65,3 +66,20 @@ class Book(models.Model):
         if book.isbn and not book._check_isbn():
             raise Warning('%s is an invalid ISBN' % book.isbn)
         return True
+
+    def btn_whatsapp(self):
+
+        message = 'Hello'
+        phone = '+254701179794'
+        wa_api_url = 'https://api.whatsapp.com/send?phone=%s&text=%s' % (
+            self.phone, message)
+
+        return {
+
+            'type': 'ir.actions.act_url',
+
+            'target': 'new',
+
+            'url': wa_api_url
+
+        }
